@@ -155,7 +155,7 @@ const Mint: NextPage = () => {
   };
 
   return (
-    <Box pt="2" position="absolute" bottom="0" bg="black" right="5" left="5">
+    <Box pt="2" position="absolute" bottom="10" bg="black" right="5" left="5">
       {!address ? (
         <Connect />
       ) : (
