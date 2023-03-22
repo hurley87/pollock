@@ -11,13 +11,16 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = 'Pollock721 Art' }: Props) => {
+const Layout = ({ children, title = 'Pollock721' }: Props) => {
   const router = useRouter();
   return (
     <Box>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="Pollock721 Art" />
+        <meta
+          name="description"
+          content="Mint a randomly generated Pollock721 NFT and own a piece of art history."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Flex
