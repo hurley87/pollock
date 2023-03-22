@@ -11,13 +11,13 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
+const Layout = ({ children, title = 'Pollock721 Art' }: Props) => {
   const router = useRouter();
   return (
     <Box>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="Pollockesque Art" />
+        <meta name="description" content="Pollock721 Art" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Flex
@@ -38,7 +38,7 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
           pb="40px"
         >
           <Text fontSize="4xl" fontWeight="semibold">
-            Pollockesque
+            Pollock721
           </Text>
           <Link
             style={{ marginTop: '0px' }}
@@ -72,7 +72,7 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
               expressionism and modern art in general.
             </Text>
             <Text>
-              Mint a randomly generated Pollockesque NFT and own a piece of art
+              Mint a randomly generated Pollock721 NFT and own a piece of art
               history.
             </Text>
           </Stack>

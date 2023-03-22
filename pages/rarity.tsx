@@ -7,13 +7,12 @@ const TraitsPage: NextPage = () => {
     <Layout>
       <Stack py="12px" maxW="800px" gap="4">
         <Text>
-          All Pollockesque NFTs are generated using a combination of the
-          following traits. Each trait has a different impact on the final
-          artwork, and each Pollockesque NFT is unique. {"There's"} a rarity
-          score for each trait, which indicates how common that trait is in the
-          collection. The rarity score is based on the number of Pollockesque
-          NFTs that have that trait, and the total number of Pollockesque NFTs
-          that have been minted.
+          All Pollock721 NFTs are generated using a combination of the following
+          traits. Each trait has a different impact on the final artwork, and
+          each Pollock721 NFT is unique. {"There's"} a rarity score for each
+          trait, which indicates how common that trait is in the collection. The
+          rarity score is based on the number of Pollock721 NFTs that have that
+          trait, and the total number of Pollock721 NFTs that have been minted.
         </Text>
         <Text fontWeight="bold" fontSize="xl" pt="6">
           Techniques

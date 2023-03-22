@@ -104,7 +104,7 @@ const Mint: NextPage = () => {
     console.log('OpenAI Response: ', url);
 
     const mintJson = {
-      name: 'Pollockesque',
+      name: 'Pollock721',
       description: prompt,
       image: url,
       attributes: [
