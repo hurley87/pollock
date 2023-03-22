@@ -32,11 +32,8 @@ export default async function handler(
 
   const url: string = response.data.data[0].url as string;
   const imageResponse = await fetch(url);
-  console.log('imageResponse', imageResponse);
   const imageData = await imageResponse?.buffer();
-  console.log('imageData', imageData);
-
-  var val = Math.floor(1000000 + Math.random() * 9000000);
+  const val = Math.floor(1000000 + Math.random() * 9000000);
 
   // Upload the image to S3 bucket
   const s3Params = {

@@ -62,13 +62,11 @@ const Collection: NextPage = () => {
       const owner = await actionContract?.contract?.ownerOf(id);
       const tokenURI = await actionContract?.contract?.tokenURI(id);
       const ipfsHash = tokenURI.replace('https://ipfs.io/ipfs/', '');
-      console.log('ipfsHash', ipfsHash);
 
       const content = await getFromIPFS(ipfsHash);
 
       try {
         const ipfsObject = JSON.parse(content);
-        console.log('ipfsObject', ipfsObject);
         nfts.push({
           i,
           id,
@@ -80,7 +78,6 @@ const Collection: NextPage = () => {
         console.log(e);
       }
     }
-    console.log('nfts', nfts);
     setNftsLoaded(true);
     setNfts(nfts);
   }, [actionContract]);
@@ -91,7 +88,6 @@ const Collection: NextPage = () => {
   }, [actionContract]);
 
   const showNFT = (nft: any) => {
-    console.log('nft', nft);
     onOpen();
     setSelectedNFT(nft);
   };

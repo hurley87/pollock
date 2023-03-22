@@ -90,8 +90,6 @@ const Mint: NextPage = () => {
 
     const prompt = `A ${technique} painting by Jackson Pollock that features a ${color} palette and invokes a primarily ${experience} experience. The painting fills the output image and is centered.`;
 
-    console.log('Prompt: ', prompt);
-
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
