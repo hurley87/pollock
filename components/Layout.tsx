@@ -80,7 +80,7 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
         </Stack>
         <Box w="full" p="24px" position="relative" overflowY="scroll">
           <HStack w="full" justify="space-between" pb="24px">
-            <Flex gap="8" fontSize="21px">
+            <Flex gap="8" fontSize="18px">
               <Link href="/">
                 <Text opacity={router.asPath === '/' ? '1' : '0.6'}>
                   Gallery
