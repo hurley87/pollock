@@ -7,7 +7,7 @@ const useActionContract = () => {
   const provider = useProvider();
   const { data: signer } = useSigner();
   const contract = useContract({
-    address: '0xf9D3C434f909F7E2286a2405f94Ffa19320f3A31',
+    address: '0x7F0F107a3f1143D7743443DdcC47F682152b5C49',
     abi: ActionContract.abi,
     signerOrProvider: signer || provider,
   });
@@ -15,7 +15,7 @@ const useActionContract = () => {
   const mint = async (to: string, tokenId: string) => {
     const tx = await contract?.mint(to, tokenId, {
       gasLimit: ethers.utils.hexlify(1000000),
-      value: ethers.utils.parseEther('0.025'),
+      value: ethers.utils.parseEther('0.005'),
     });
     const receipt = await tx?.wait();
     return receipt;

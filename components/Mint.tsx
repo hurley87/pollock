@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { create } from 'ipfs-http-client';
 import { useEffect, useState } from 'react';
@@ -7,6 +7,7 @@ import useActionContract from '@/hooks/contracts/useActionContract';
 import PrimaryButton from './PrimaryButton';
 import { Connect } from './Connect';
 import toast from 'react-hot-toast';
+import TotalSupply from './TotalSupply';
 
 const projectId = process.env.NEXT_PUBLIC_INFRA_PROJECT_ID;
 const projectSecret = process.env.NEXT_PUBLIC_INFRA_SECRET;
@@ -66,33 +67,11 @@ const Mint: NextPage = () => {
   const { address } = useAccount();
   const actionContract = useActionContract();
   const [totalSupply, setTotalSupply] = useState(0);
-  const [countdown, setCountdown] = useState('');
-
-  // crete a function that is a countdown to march 31st, 2023 at midnight in the format 5d 3h 59m 45s
-  const formatCountdown = () => {
-    const now = new Date();
-    const march31st2023 = new Date('March 31, 2023 00:00:00');
-    const diff = march31st2023.getTime() - now.getTime();
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`);
-  };
-
-  //   update countdown every second
-  useEffect(() => {
-    const interval = setInterval(() => {
-      formatCountdown();
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   //   get total supply on load in useEffect
   useEffect(() => {
     async function init() {
       const totalSupply = await actionContract?.totalSupply();
-      console.log('Total Supply: ', totalSupply);
       const supply = totalSupply.toNumber();
       setTotalSupply(supply);
     }
@@ -107,7 +86,7 @@ const Mint: NextPage = () => {
     const color = randomItemRarity(colorsRarity)?.toLocaleLowerCase();
     const experience = randomItemRarity(experiencesRarity)?.toLocaleLowerCase();
 
-    const prompt = `A ${technique} painting by Jackson Pollock that features a ${color} palette and invokes a primarily ${experience} experience. Don't show the frame of the painting and show the pattern of the paint right to the edge of the image.`;
+    const prompt = `A ${technique} painting by Jackson Pollock that features a ${color} palette and invokes a primarily ${experience} experience. The painting fills the output image and is centered.`;
 
     console.log('Prompt: ', prompt);
 
@@ -125,7 +104,7 @@ const Mint: NextPage = () => {
     console.log('OpenAI Response: ', url);
 
     const mintJson = {
-      name: 'AI Art',
+      name: 'Pollockesque',
       description: prompt,
       image: url,
       attributes: [
@@ -174,15 +153,12 @@ const Mint: NextPage = () => {
             />
           ) : (
             <PrimaryButton
-              text="Mint - 0.025 ETH"
+              text="Mint - 0.005 ETH"
               isLoading={isMinting}
               onClick={handleMint}
             />
           )}
-
-          <Text pb="4" pt="2" textAlign="center">
-            {totalSupply} minted • {countdown}
-          </Text>
+          <TotalSupply />
         </>
       )}
     </Box>

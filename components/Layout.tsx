@@ -22,19 +22,19 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
       </Head>
       <Flex
         w="full"
-        h={{ base: '100%', xl: '100vh' }}
+        h={{ base: '100%', md: '100vh' }}
         bg="black"
         color="white"
-        direction={{ base: 'column', xl: 'row' }}
+        direction={{ base: 'column', md: 'row' }}
       >
         <Stack
           p="24px"
-          maxW={{ base: '100%', xl: '400px' }}
+          maxW={{ base: '100%', md: '400px' }}
           w="full"
           h="full"
           gap="9px"
           position="relative"
-          overflowY={{ xl: 'scroll' }}
+          overflowY={{ md: 'scroll' }}
           pb="40px"
         >
           <Text fontSize="4xl" fontWeight="semibold">
@@ -51,7 +51,7 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
           </Link>
           <Stack
             gap="12px"
-            fontSize={{ base: '14px', xl: '16px' }}
+            fontSize={{ base: '14px', md: '16px' }}
             maxW="700px"
             position="relative"
           >
@@ -77,7 +77,9 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
           <HStack w="full" justify="space-between" pb="24px">
             <Flex gap="8" fontSize="21px">
               <Link href="/">
-                <Text opacity={router.asPath === '/' ? '1' : '0.6'}>Art</Text>
+                <Text opacity={router.asPath === '/' ? '1' : '0.6'}>
+                  Gallery
+                </Text>
               </Link>
               <Link href="/traits">
                 <Text opacity={router.asPath === '/traits' ? '1' : '0.6'}>
@@ -90,7 +92,7 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
                 </Text>
               </Link>
             </Flex>
-            <Box display={{ base: 'none', xl: 'block' }}>
+            <Box display={{ base: 'none', md: 'block' }}>
               <Connect />
             </Box>
           </HStack>
