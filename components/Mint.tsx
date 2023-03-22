@@ -95,7 +95,7 @@ const Mint: NextPage = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ prompt }),
+      body: JSON.stringify({ prompt, totalSupply }),
     });
 
     const data = await response.json();

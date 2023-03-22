@@ -16,6 +16,7 @@
     "@rainbow-me/rainbowkit": "^0.11.0",
     "@types/node": "18.14.5",
     "@types/react-dom": "18.0.11",
+    "aws-sdk": "^2.1340.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "ethers": "^5.7.2",
