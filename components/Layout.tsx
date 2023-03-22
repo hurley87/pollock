@@ -82,9 +82,14 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
                   Gallery
                 </Text>
               </Link>
-              <Link href="/traits">
-                <Text opacity={router.asPath === '/traits' ? '1' : '0.6'}>
-                  Traits
+              <Link href="/collection">
+                <Text opacity={router.asPath === '/collection' ? '1' : '0.6'}>
+                  Collection
+                </Text>
+              </Link>
+              <Link href="/rarity">
+                <Text opacity={router.asPath === '/rarity' ? '1' : '0.6'}>
+                  Rarity
                 </Text>
               </Link>
               <Link href="/utility">

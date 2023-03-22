@@ -15,7 +15,7 @@ const TraitsPage: NextPage = () => {
           NFTs that have that trait, and the total number of Pollockesque NFTs
           that have been minted.
         </Text>
-        <Text fontWeight="bold" fontSize="xl" pt="10">
+        <Text fontWeight="bold" fontSize="xl" pt="6">
           Techniques
         </Text>
         <Text>

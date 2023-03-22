@@ -8,6 +8,7 @@ import PrimaryButton from './PrimaryButton';
 import { Connect } from './Connect';
 import toast from 'react-hot-toast';
 import TotalSupply from './TotalSupply';
+import { useRouter } from 'next/router';
 
 const projectId = process.env.NEXT_PUBLIC_INFRA_PROJECT_ID;
 const projectSecret = process.env.NEXT_PUBLIC_INFRA_SECRET;
@@ -67,6 +68,7 @@ const Mint: NextPage = () => {
   const { address } = useAccount();
   const actionContract = useActionContract();
   const [totalSupply, setTotalSupply] = useState(0);
+  const router = useRouter();
 
   //   get total supply on load in useEffect
   useEffect(() => {
@@ -125,6 +127,7 @@ const Mint: NextPage = () => {
         toast.success('NFT minted!');
         setTotalSupply(totalSupply + 1);
       }
+      router.push('/collection');
       setIsMinting(false);
     } catch (e) {
       console.log('Error minting NFT: ', e);
