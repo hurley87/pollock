@@ -11,6 +11,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Skeleton,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import { useCallback, useEffect, useState } from 'react';
@@ -100,36 +101,58 @@ const Art: NextPage = () => {
       columnGap={2}
       rowGap={2}
     >
-      {nfts.map((nft: any) => (
-        <GridItem
-          key={nft.i}
-          bg="blue.500"
-          display="relative"
-          h="full"
-          borderRadius="md"
-          borderColor="blue.500"
-          borderWidth="1px"
-          shadow="xl"
-          cursor="pointer"
-          onClick={() => showNFT(nft)}
-        >
-          <Box
-            _hover={{
-              shadow: 'md',
-              transform: 'translateX(5px) translateY(5px) translateZ(0px)',
-              transitionDuration: '0.5s',
-              transitionTimingFunction: 'ease-in-out',
-            }}
+      {!nftsLoaded &&
+        [1, 2, 3, 4, 5, 6, 7, 8].map((i: any) => (
+          <GridItem
+            key={i}
+            bg="blue.500"
+            display="relative"
+            h="full"
+            borderRadius="md"
+            borderColor="blue.500"
+            borderWidth="1px"
+            shadow="xl"
           >
-            <Img w="full" h="auto" src={nft.image} borderRadius="md" />
-            <Stack w="full" bg="black" borderBottomRadius="md" p="4" gap="0px">
-              <Text fontSize="sm" fontWeight="bold" color="white" pb="0">
-                {nft.owner.slice(0, 6)}...{nft.owner.slice(-4)}
-              </Text>
-            </Stack>
-          </Box>
-        </GridItem>
-      ))}
+            <Skeleton w="full" h="300px" />
+          </GridItem>
+        ))}
+      {nftsLoaded &&
+        nfts.map((nft: any) => (
+          <GridItem
+            key={nft.i}
+            bg="blue.500"
+            display="relative"
+            h="full"
+            borderRadius="md"
+            borderColor="blue.500"
+            borderWidth="1px"
+            shadow="xl"
+            cursor="pointer"
+            onClick={() => showNFT(nft)}
+          >
+            <Box
+              _hover={{
+                shadow: 'md',
+                transform: 'translateX(5px) translateY(5px) translateZ(0px)',
+                transitionDuration: '0.5s',
+                transitionTimingFunction: 'ease-in-out',
+              }}
+            >
+              <Img w="full" h="auto" src={nft.image} borderRadius="md" />
+              <Stack
+                w="full"
+                bg="black"
+                borderBottomRadius="md"
+                p="4"
+                gap="0px"
+              >
+                <Text fontSize="sm" fontWeight="bold" color="white" pb="0">
+                  {nft.owner.slice(0, 6)}...{nft.owner.slice(-4)}
+                </Text>
+              </Stack>
+            </Box>
+          </GridItem>
+        ))}
       <Modal size={'md'} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
