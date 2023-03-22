@@ -54,6 +54,7 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
             fontSize={{ base: '14px', md: '16px' }}
             maxW="700px"
             position="relative"
+            minH="420px"
           >
             <Text>
               Jackson Pollock was an American painter and a major figure in the
