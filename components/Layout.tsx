@@ -71,6 +71,10 @@ const Layout = ({ children, title = 'Pollockesque Art' }: Props) => {
               His work had a significant impact on the development of abstract
               expressionism and modern art in general.
             </Text>
+            <Text>
+              Mint a randomly generated Pollockesque NFT and own a piece of art
+              history.
+            </Text>
           </Stack>
           <Mint />
         </Stack>
