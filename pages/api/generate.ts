@@ -24,11 +24,13 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const prompt = req.body.prompt;
+  console.log(prompt);
   const response = await openai.createImage({
     prompt,
     n: 1,
     size: '1024x1024',
   });
+  console.log(response);
 
   const url: string = response.data.data[0].url as string;
   const imageResponse = await fetch(url);
